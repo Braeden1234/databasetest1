@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Full Stack Website</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Newsletter Signup</title>
 </head>
 <body>
-    <h1>Data Input Form</h1>
-    <form id="dataForm">
-        <input type="text" id="dataInput" placeholder="Enter data" required>
-        <button type="submit">Submit</button>
-    </form>
-    <h2>Stored Data</h2>
-    <ul id="dataList"></ul>
+    <div class="container">
+        <h1>Subscribe to Our Newsletter</h1>
+        <form id="signup-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p id="response-message"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
