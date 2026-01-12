@@ -1,16 +1,21 @@
-document.getElementById('dataForm').addEventListener('submit', function(event) {
+document.getElementById('signup-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const dataInput = document.getElementById('dataInput').value;
-    fetch('/api/data', {
+    const email = document.getElementById('email').value;
+
+    fetch('/api/subscribe', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ data: dataInput })
+        body: JSON.stringify({ email }),
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('dataList').innerHTML += `<li>${data.data}</li>`;
-        document.getElementById('dataInput').value = '';
+        document.getElementById('response-message').innerText = data.message;
+        document.getElementById('signup-form').reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('response-message').innerText = 'An error occurred. Please try again.';
     });
 });
